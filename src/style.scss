@@ -1,0 +1,18 @@
+$midnight-blue: #191970;
+
+body{
+    min-height: 100vh;
+    color: #333;
+    background: #ddd;
+    background-image: linear-gradient(to bottom, yellow, $midnight-blue);
+}
+
+.card-front{
+    height: 500px;
+    width: 500px;
+}
+
+.card-back{
+    height: 500px;
+    width: 500px;
+}

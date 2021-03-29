@@ -1,17 +1,15 @@
 import React from "react";
 import Card from "./Card.js";
-import teslaImg from "../assets/images/tesla.jpg";
-import mclarenImg from "../assets/images/mclaren.jpg";
 
-const CreateCards = () =>{
-    
-    const cardImages = [teslaImg, mclarenImg];
+const CreateCards = (props) =>{
+
+    const cardImages = props.content;
 
     return(
         <React.Fragment>
             {
                 cardImages.map((card, id) => 
-                    <Card key={card} icon={cardImages[id]}/>
+                    <Card key={`carta: ${card} con id: ${id}`} icon={cardImages[id]} move={props.keepTrack} checking={props.checking}/>
                 )
             }
         </React.Fragment>

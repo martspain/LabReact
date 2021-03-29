@@ -2,19 +2,29 @@ import React, { useState } from "react";
 import ReactCardFlip from "react-card-flip";
 
 const Card = (props) => {
-    const [isFlipped, setIsFlipped] = useState(false);
+
+    const [isFlipped, setIsFlipped] = useState(true);
 
     const HandleClick = () => {
         setIsFlipped(!isFlipped);
     };
+
+    const cardClicked = () =>{        
+        HandleClick();
+        props.move();
+
+        if(isFlipped && props != undefined){
+            props.checking(props.icon);
+        } 
+    }
 
     return(
         <ReactCardFlip isFlipped ={isFlipped} flipDirection = "vertical">
             <div className="card-front" onClick ={HandleClick}>
                 <img src={props.icon} className="image"></img>
             </div>
-            <div className="card-back" onClick={HandleClick}>
-                <h1 className="back-title">React</h1>
+            <div className="card-back" onClick={cardClicked}>
+                <h1 className="back-title">Pairs</h1>
             </div>
         </ReactCardFlip> 
     );

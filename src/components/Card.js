@@ -1,16 +1,7 @@
 import React, { useState } from "react";
 import ReactCardFlip from "react-card-flip";
-//import ReactComponent from "react";
-/*
-class Card extends ReactComponent{
-    render(){
-        return(
-            <button className="card"></button>
-        )
-    }
-}
-*/
-const CardFlip = () => {
+
+const Card = (props) => {
     const [isFlipped, setIsFlipped] = useState(false);
 
     const HandleClick = () => {
@@ -19,14 +10,14 @@ const CardFlip = () => {
 
     return(
         <ReactCardFlip isFlipped ={isFlipped} flipDirection = "vertical">
-            <div>
-                <button className="card-front" onClick ={HandleClick}>Front</button>
+            <div className="card-front" onClick ={HandleClick}>
+                <img src={props.icon} className="image"></img>
             </div>
-            <div>
-                <button className="card-back" onClick={HandleClick}>Back</button>
+            <div className="card-back" onClick={HandleClick}>
+                <h1 className="back-title">React</h1>
             </div>
         </ReactCardFlip> 
     );
 }
 
-export default CardFlip;
+export default Card;

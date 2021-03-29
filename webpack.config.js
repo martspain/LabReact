@@ -5,7 +5,7 @@ module.exports = {
 
     entry: './src/index.js',
     output:{
-        filename: "name.bundle.js",
+        filename: "[name].bundle.js",
         path: path.resolve(__dirname, "dist")
     },
     plugins:[
@@ -23,6 +23,13 @@ module.exports = {
             {
                 test: /\.scss$/i,
                 use: ["style-loader", "css-loader", "sass-loader"]
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+				loader: 'file-loader',
+				options: {
+				  outputPath: 'images',
+				}
             }
         ]
     }

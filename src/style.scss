@@ -1,4 +1,23 @@
 $midnight-blue: #191970;
+$dark-red: #8b0000;
+$light-green: #94ce3d;
+
+@mixin all-cards {
+    height: 200px;
+    width: 350px;
+    border-radius: 10%;
+    background-color: white;
+}
+
+@keyframes grad-anim{
+    0%{
+        background-position: left;
+    }
+
+    100%{
+        background-position: right;
+    }
+}
 
 body{
     min-height: 100vh;
@@ -7,12 +26,42 @@ body{
     background-image: linear-gradient(to bottom, yellow, $midnight-blue);
 }
 
+@mixin all-cards {
+    height: 200px;
+    width: 350px;
+    border-radius: 10%;
+    background-color: white;
+}
+
 .card-front{
-    height: 500px;
-    width: 500px;
+    @include all-cards;
 }
 
 .card-back{
-    height: 500px;
-    width: 500px;
+    @include all-cards;
+    background-color: $dark-red;
+    .back-title{
+        text-align: center;
+        font-weight: 500;
+        font-size: 6rem;
+        font-family: 'Black Ops One';
+        line-height: 0.8;
+        margin: 0;
+        padding: 17% 0;
+        color: $midnight-blue;
+
+        background-image: linear-gradient(to right, $midnight-blue, yellow, $midnight-blue);
+        background-size: 400%;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        animation: grad-anim 7s infinite alternate;
+
+    }
+}
+
+.image{
+    height: 200px;
+    width: 350px;
+    border-radius: 10%;
 }
